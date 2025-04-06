@@ -10,11 +10,14 @@ A simple and useful web tool to calculate how many classes you can bunk (miss) o
 - Bunk planner
 - Compact calendar UI for attendance tracking
 - Dark mode toggle 🌙
-- Built with **HTML**, **CSS**, and **Vanilla JavaScript**
+- Built with HTML, CSS, and Vanilla JavaScript
 
 📸 Screenshots
+Light Mode 
+![Screenshot (134)](https://github.com/user-attachments/assets/9ff33c84-759c-4bb0-ab2e-6c8a158cc83a)
+Dark mode 
+![image](https://github.com/user-attachments/assets/62040c1d-8c8d-458b-b193-7e1cbabb6480)
 
-(Add screenshots here if possible – use GitHub Issues to upload and copy the image links)
 
 💻 Live Demo
 
