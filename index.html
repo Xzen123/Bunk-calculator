@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bunk Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <button class="toggle-dark" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <section class="section">
+      <h2>Bunk Calculator</h2>
+      <form id="bunkForm" onsubmit="calculateBunk(); return false;">
+        <label for="required">Required Attendance %</label>
+        <input type="number" id="required" placeholder="e.g. 75" min="0" max="100" required 
+               aria-label="Required Attendance Percentage" aria-describedby="required-desc">
+        <span id="required-desc" class="hidden">Enter percentage between 0 and 100</span>
+
+        <div class="mode-switch">
+          <label><input type="radio" name="mode" value="calendar" checked onchange="switchMode('calendar')"> Calendar Input</label>
+          <label><input type="radio" name="mode" value="manual" onchange="switchMode('manual')"> Manual Input</label>
+        </div>
+
+        <div id="calendarInputs">
+          <button type="button" onclick="calendarUtils.toggle('attended')">Select Attended Days</button>
+          <div id="attendedPopup" class="calendar-popup"></div>
+          <div id="attendedDates" class="selected-dates"></div>
+
+          <button type="button" onclick="calendarUtils.toggle('working')">Select Working Days</button>
+          <div id="workingPopup" class="calendar-popup"></div>
+          <div id="workingDates" class="selected-dates"></div>
+        </div>
+
+        <div id="manualInputs" class="hidden">
+          <label for="attendedManual">Attended Days</label>
+          <input type="number" id="attendedManual" min="0" aria-label="Attended Days" />
+          <label for="workingManual">Working Days</label>
+          <input type="number" id="workingManual" min="0" aria-label="Working Days" />
+        </div>
+
+        <div class="button-group">
+          <button type="submit">Calculate Bunks</button>
+          <button type="button" onclick="resetAll()">Reset All</button>
+        </div>
+        <div id="result" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="section">
+      <h3>Reverse Calculator</h3>
+      <label for="desiredBunks">How many days do you want to bunk?</label>
+      <input type="number" id="desiredBunks" min="0" aria-label="Desired Bunk Days" />
+      <div class="button-center">
+        <button onclick="calculateReverse()">Calculate Minimum Attended</button>
+      </div>
+      <div id="reverseResult" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+      <h3>Bunk Planner</h3>
+      <div class="button-center">
+        <button onclick="suggestBunkDays()">Suggest Bunk Days</button>
+      </div>
+      <div id="planner" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    Bunk Calculator v1.0 | Created with ❤️ by Alok
+  </footer>
+
+  <noscript>
+    <div class="no-js-warning">
+      This calculator requires JavaScript to function properly.
+    </div>
+  </noscript>
+
+  <script src="index.js"></script>
+</body>
+</html>
